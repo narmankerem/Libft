@@ -1,35 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: knarman <knarman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 15:55:18 by knarman           #+#    #+#             */
-/*   Updated: 2023/12/05 22:36:03 by knarman          ###   ########.fr       */
+/*   Created: 2023/12/05 22:41:50 by knarman           #+#    #+#             */
+/*   Updated: 2023/12/05 23:15:49 by knarman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memset(void *dest, int c, size_t count)
+char *ft_substr(char const *s, unsigned int start, size_t len)
 {
-    unsigned char *d1;
+    size_t i;
+    char *dst;
+
+    i = 0;
+    if (!(dst = malloc(sizeof(char) * len + 1)))
+        return (NULL);
+    while (i < len && s[start + i] != '\0')
+    {
+        dst[i] = s[start + i];
+        i++;
+    }
+    dst[i] = '\0';
+    return (dst);
     
-    d1 = (unsigned char *)dest;
-    while (count--)
-        *d1++ = (unsigned char)c;
-    return (dest);
 }
 
 int main ()
 {
     char str[20] = "KEREFSMFSD";
-    int val = 'A';
+    unsigned int val = 5;
     
-    ft_memset(str, val, 5);
-
-    printf("Doldurulmuş bellek bloğu: %s\n", str);
+    printf("Doldurulmuş bellek bloğu: %s\n", ft_substr(str, val, 4));
 
     return 0;
 }
