@@ -6,7 +6,7 @@
 /*   By: knarman <knarman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:55:06 by knarman           #+#    #+#             */
-/*   Updated: 2023/12/05 18:26:42 by knarman          ###   ########.fr       */
+/*   Updated: 2023/12/08 09:45:48 by knarman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main ()
 {
     //unsigned char *ptr;
     char *s = "kerem";
-    char c = 'e';
+    //char c = 'e';
     size_t n = 5;
     //*ptr = ft_memchr(s, c, n);
     printf("%p", ft_memchr(s, 'e', n));

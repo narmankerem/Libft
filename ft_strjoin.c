@@ -6,7 +6,7 @@
 /*   By: knarman <knarman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 23:29:50 by knarman           #+#    #+#             */
-/*   Updated: 2023/12/06 00:02:42 by knarman          ###   ########.fr       */
+/*   Updated: 2023/12/08 09:46:42 by knarman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char *ft_strjoin(char const *s1, char const *s2)
     size_t i;
     size_t j;
     
-    if (s1 == '\0' || s2 == '\0')
+    if (s1 == NULL || s2 == NULL)
         return (NULL);
         
     if (!(dest = (char *)malloc(sizeof(s1)* (ft_strlen(s1) + ft_strlen(s2) + 1))))
