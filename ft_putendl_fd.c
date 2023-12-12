@@ -6,13 +6,14 @@
 /*   By: knarman <knarman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 01:06:39 by knarman           #+#    #+#             */
-/*   Updated: 2023/12/06 01:07:07 by knarman          ###   ########.fr       */
+/*   Updated: 2023/12/12 04:28:40 by knarman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putendl_fd(char *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
-    
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }

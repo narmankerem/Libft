@@ -6,13 +6,13 @@
 /*   By: knarman <knarman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:55:04 by knarman           #+#    #+#             */
-/*   Updated: 2023/12/05 23:46:01 by knarman          ###   ########.fr       */
+/*   Updated: 2023/12/11 21:44:11 by knarman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isprint(int c)
+int	ft_isprint(int c)
 {
-    return (c >= 32 && c <= 126);
+	return (c >= 32 && c <= 126);
 }

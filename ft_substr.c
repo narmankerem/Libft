@@ -6,36 +6,35 @@
 /*   By: knarman <knarman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 22:41:50 by knarman           #+#    #+#             */
-/*   Updated: 2023/12/05 23:15:49 by knarman          ###   ########.fr       */
+/*   Updated: 2023/12/12 05:03:27 by knarman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
-    size_t i;
-    char *dst;
+	char	*str;
+	char	*src;
 
-    i = 0;
-    if (!(dst = malloc(sizeof(char) * len + 1)))
-        return (NULL);
-    while (i < len && s[start + i] != '\0')
-    {
-        dst[i] = s[start + i];
-        i++;
-    }
-    dst[i] = '\0';
-    return (dst);
-    
-}
-
-int main ()
-{
-    char str[20] = "KEREFSMFSD";
-    unsigned int val = 5;
-    
-    printf("Doldurulmuş bellek bloğu: %s\n", ft_substr(str, val, 4));
-
-    return 0;
+	src = (char *)s;
+	if (!src)
+		return (NULL);
+	if (start >= ft_strlen(s))
+	{
+		str = (char *)malloc(sizeof(char));
+		if (!str)
+			return (NULL);
+		*str = '\0';
+	}
+	else
+	{
+		if ((ft_strlen(s) - start) < len)
+			len = ft_strlen(s) - start;
+		str = (char *)malloc((sizeof(char) * len) + 1);
+		if (!str)
+			return (NULL);
+		ft_strlcpy(str, (char *)(s + start), len + 1);
+	}
+	return (str);
 }

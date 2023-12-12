@@ -6,13 +6,13 @@
 /*   By: knarman <knarman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:55:01 by knarman           #+#    #+#             */
-/*   Updated: 2023/12/05 23:45:52 by knarman          ###   ########.fr       */
+/*   Updated: 2023/12/11 21:44:09 by knarman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
-    return (c >= 48 && c <= 57);
+	return (c >= 48 && c <= 57);
 }

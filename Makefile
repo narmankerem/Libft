@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: knarman <knarman@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/12/12 13:58:56 by knarman           #+#    #+#              #
+#    Updated: 2023/12/12 13:58:58 by knarman          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = libft.a
 CC = gcc
 RM = rm -rf
@@ -37,7 +49,7 @@ SRC  =  ft_isalpha.c	\
 	    ft_putchar_fd.c \
 	    ft_putstr_fd.c 	\
 	    ft_putendl_fd.c \
-	    ft_putnbr_fd.
+	    ft_putnbr_fd.c
 
 BONUS = ft_lstnew.c 	  \
 		ft_lstadd_front.c \
@@ -46,8 +58,8 @@ BONUS = ft_lstnew.c 	  \
 		ft_lstadd_back.c  \
 		ft_lstdelone.c 	  \
 		ft_lstclear.c 	  \
-		ft_lstiter.c 	  \
-		ft_lstmap.c
+		ft_lstiter.c 	  
+		
 
 OBJ = ${SRC:.c=.o}
 BONUS_OBJ = ${BONUS:.c=.o}
@@ -56,6 +68,9 @@ all: ${NAME}
 
 $(NAME): ${OBJ}
 	ar rcs ${NAME} ${OBJ}
+
+bonus: $(OBJ) $(BONUS_OBJ)
+	ar rcs -r $(NAME) $? 
 
 clean: 
 		${RM} ${OBJ} ${BONUS_OBJ}

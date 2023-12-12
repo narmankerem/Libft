@@ -6,102 +6,95 @@
 /*   By: knarman <knarman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 00:56:48 by knarman           #+#    #+#             */
-/*   Updated: 2023/12/08 09:48:45 by knarman          ###   ########.fr       */
+/*   Updated: 2023/12/12 16:51:28 by knarman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int is_seperator(const char *seperators, char c)
+static char	**ft_malloc_error(char **tab)
 {
-    while (*seperators)
-    {
-        if (c == *seperators)
-            return (1);
-        seperators++;
-    }
-    return 0;
+	size_t	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+	return (NULL);
 }
 
-char **ft_split(const char *str, const char *separators)
+static size_t	ft_nb_words(char const *s, char c)
 {
-    size_t word_count = 0;
-    const char *p = str;
+	size_t	i;
+	size_t	nb_words;
 
-    while (*p)
-    {
-        while (*p && is_seperator(separators, *p))
-            p++; //ayırıcıları atla
-        if (*p)
-        {
-            word_count++;
-            while (*p && !is_seperator(separators, *p))
-                p++; // harfleri atla
-        }
-        
-    }
-
-    char **result = (char **)malloc((word_count + 1) * sizeof(char *));
-    if (!result)
-        return (NULL);
-    
-    size_t i;
-    
-    i = 0;
-    p = str;
-
-    while (*p)
-    { // str[] = "kerem, top, oynuyor"
-        while (*p && is_seperator(separators, *p))
-            p++; //ayırıcıları atla
-        if (*p)
-        {
-            const char *start = p;
-            while (*p && !is_seperator(separators, *p))
-                p++; //harfleri atla
-            // start = kerem
-            size_t len = p - start;
-            result[i] = (char *)malloc(sizeof(char *) * (len + 1));
-            if (!result[i])
-            {
-                while (i > 0)
-                    free(result[--i]);
-                free(result);
-                return (NULL);
-            }
-            size_t j;
-            
-            j = 0;
-            while (result[i] && j < len)
-            {
-                result[i][j] = start[j];
-                j++;
-            }
-            result[i][j] = '\0';
-            i++;
-        }
-        
-        
-    }
-
-    result[word_count] = NULL;
-    return (result);
+	if (!s[0])
+		return (0);
+	i = 0;
+	nb_words = 0;
+	while (s[i] && s[i] == c)
+		i++;
+	while (s[i])
+	{
+		if (s[i] == c)
+		{
+			nb_words++;
+			while (s[i] && s[i] == c)
+				i++;
+			continue ;
+		}
+		i++;
+	}
+	if (s[i - 1] != c)
+		nb_words++;
+	return (nb_words);
 }
 
-int main() {
-    char *str = " ,   Hello   ,Wor ld!Th   is,is,a,te st! ";
-    char *separators = ",!     ";
-    char **result = ft_split(str, separators);
+static void	ft_get_next_word(char **next_word, size_t *next_word_len, char c)
+{
+	size_t	i;
 
-    if (result) {
-        for (size_t i = 0; result[i] != NULL; ++i) {
-            printf("%s\n", result[i]);
-            free(result[i]);
-        }
-        free(result);
-    } else {
-        printf("Memory error occurred.\n");
-    }
+	*next_word += *next_word_len;
+	*next_word_len = 0;
+	i = 0;
+	while (**next_word && **next_word == c)
+		(*next_word)++;
+	while ((*next_word)[i])
+	{
+		if ((*next_word)[i] == c)
+			return ;
+		(*next_word_len)++;
+		i++;
+	}
+}
 
-    return 0;
+char	**ft_split(char const *s, char c)
+{
+	char	**tab;
+	char	*next_word;
+	size_t	next_word_len;
+	size_t	i;
+
+	if (!s)
+		return (NULL);
+	tab = (char **)malloc(sizeof(char *) * (ft_nb_words(s, c) + 1));
+	if (!tab)
+		return (NULL);
+	i = 0;
+	next_word = (char *)s;
+	next_word_len = 0;
+	while (i < ft_nb_words(s, c))
+	{
+		ft_get_next_word(&next_word, &next_word_len, c);
+		tab[i] = (char *)malloc(sizeof(char) * (next_word_len + 1));
+		if (!tab[i])
+			return (ft_malloc_error(tab));
+		ft_strlcpy(tab[i], next_word, next_word_len + 1);
+		i++;
+	}
+	tab[i] = NULL;
+	return (tab);
 }

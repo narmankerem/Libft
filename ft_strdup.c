@@ -6,28 +6,19 @@
 /*   By: knarman <knarman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:55:23 by knarman           #+#    #+#             */
-/*   Updated: 2023/12/05 15:58:24 by knarman          ###   ########.fr       */
+/*   Updated: 2023/12/12 05:02:47 by knarman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strdup(const char *s)
+char	*ft_strdup(const char *s1)
 {
-    char *copy;
-    
-    
-    if (!(copy = (char *)malloc(sizeof(char) * ft_strlen(s) + 1)))
-        return (NULL);
-    
-    while (s++)
-        *copy++ = *s++;
-    
-    return (copy);
-}
+	char	*s2;
 
-int main ()
-{
-    char str[12] = "kerem";
-    printf("%s", ft_strdup(str));
+	s2 = (char *)malloc(ft_strlen(s1) + 1);
+	if (!s2)
+		return (0);
+	ft_memcpy(s2, s1, ft_strlen(s1) + 1);
+	return (s2);
 }
