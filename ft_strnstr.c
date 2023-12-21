@@ -6,11 +6,11 @@
 /*   By: knarman <knarman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:55:40 by knarman           #+#    #+#             */
-/*   Updated: 2023/12/12 04:58:30 by knarman          ###   ########.fr       */
+/*   Updated: 2023/12/17 19:43:09 by knarman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <sys/_types/_size_t.h>
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {

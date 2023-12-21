@@ -6,11 +6,11 @@
 /*   By: knarman <knarman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:55:32 by knarman           #+#    #+#             */
-/*   Updated: 2023/12/12 04:15:39 by knarman          ###   ########.fr       */
+/*   Updated: 2023/12/17 19:42:38 by knarman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <sys/_types/_size_t.h>
 
 size_t	ft_strlen(const char *s)
 {

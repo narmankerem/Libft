@@ -6,11 +6,9 @@
 /*   By: knarman <knarman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:55:50 by knarman           #+#    #+#             */
-/*   Updated: 2023/12/12 04:34:31 by knarman          ###   ########.fr       */
+/*   Updated: 2023/12/17 19:43:58 by knarman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_toupper(int c)
 {

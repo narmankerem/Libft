@@ -6,11 +6,9 @@
 /*   By: knarman <knarman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:54:59 by knarman           #+#    #+#             */
-/*   Updated: 2023/12/11 21:44:07 by knarman          ###   ########.fr       */
+/*   Updated: 2023/12/17 18:43:51 by knarman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_isascii(int c)
 {

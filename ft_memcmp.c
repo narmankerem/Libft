@@ -6,11 +6,11 @@
 /*   By: knarman <knarman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:55:09 by knarman           #+#    #+#             */
-/*   Updated: 2023/12/12 04:48:55 by knarman          ###   ########.fr       */
+/*   Updated: 2023/12/17 19:48:17 by knarman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <sys/_types/_size_t.h>
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {

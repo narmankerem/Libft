@@ -6,11 +6,12 @@
 /*   By: knarman <knarman@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:55:12 by knarman           #+#    #+#             */
-/*   Updated: 2023/12/12 05:10:52 by knarman          ###   ########.fr       */
+/*   Updated: 2023/12/17 19:49:09 by knarman          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <sys/_types/_null.h>
+#include <sys/_types/_size_t.h>
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
